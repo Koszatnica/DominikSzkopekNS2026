@@ -21,11 +21,11 @@ public class Zadanie2 : MonoBehaviour
         {
             if (obj.GetComponent<SpriteRenderer>() != null)
             {
-                Debug.Log(" jest obiektem 2D");
+                Debug.Log(obj.name + "jest obiektem 2D");
             }
             else if (obj.GetComponent<MeshRenderer>() != null)
             {
-                Debug.Log(" jest obiektem 3D");
+                Debug.Log(obj.name + " jest obiektem 3D");
             }
         }
     }

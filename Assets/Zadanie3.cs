@@ -10,11 +10,11 @@ public class ColorByHeight : MonoBehaviour
 
     [Header("Ustawienia wysokoœci")]
     public float minY = 0;
-    public float maxY = 100;
+    public float maxY = 10;
 
     [Header("Kolory")]
-    public UnityEngine.Color lowColor;
-    public UnityEngine.Color highColor;
+    public UnityEngine.Color lowColor = UnityEngine.Color.blue;
+    public UnityEngine.Color highColor = UnityEngine.Color.red;
 
     void Start()
     {
@@ -23,6 +23,12 @@ public class ColorByHeight : MonoBehaviour
     }
 
     void Update()
+    {
+        kolor();
+        Rotacja(transform);
+    
+    }
+    public void kolor()
     {
         // Pobieramy aktualn¹ pozycjê Y obiektu
         float terazY = transform.position.y;
@@ -35,5 +41,15 @@ public class ColorByHeight : MonoBehaviour
 
         // Przypisujemy nowy kolor do materia³u obiektu
         objectRenderer.material.color = finalColor;
+    }
+
+    public void Rotacja(Transform transformCube)
+    {
+        // Pobranie pozycji obiektu na osi X
+        float positionX = transformCube.position.x;
+
+        // Obrót wokó³ osi X zale¿ny od pozycji
+        transformCube.rotation = Quaternion.Euler(positionX * 36, 0, 0);
+
     }
 }
